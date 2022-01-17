@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <h4><%= category.name %></h4>
+    <p><%= category.name %></p>
   </td>
   <td>
     <%= link_to fa_icon('trash'), [:admin, category], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?\nAll products under this category will be deleted!!!" } %>
