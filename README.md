@@ -34,13 +34,17 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 ## Final Product
 
 - main page
-  !["main page"](https://github.com/yuhaoyann/scheduler/blob/master/public/docs/1.main_page.png)<br />
-- create interview
-  !["create interview"](https://github.com/yuhaoyann/scheduler/blob/master/public/docs/2.create_interview.png)<br />
-- show interviews
-  !["show interviews"](https://github.com/yuhaoyann/scheduler/blob/master/public/docs/3.show_page.png)<br />
-- delete interview
-  !["delete interview"](https://github.com/yuhaoyann/scheduler/blob/master/public/docs/4.delete_interviews.png)
+  !["main page"](https://github.com/yuhaoyann/Jungler/blob/master/app/assets/images/Admin.png)<br />
+- event page
+  !["event page"](https://github.com/yuhaoyann/Jungler/blob/master/app/assets/images/Sales_Event.png)<br />
+- product detail
+  !["product detail"](https://github.com/yuhaoyann/Jungler/blob/master/app/assets/images/Product_detail.png)<br />
+- admin
+  !["admin"](https://github.com/yuhaoyann/Jungler/blob/master/app/assets/images/Admin.png)
+- cart
+  !["cart"](https://github.com/yuhaoyann/Jungler/blob/master/app/assets/images/Cart.png)
+- payment
+  !["payment"](https://github.com/yuhaoyann/Jungler/blob/master/app/assets/images/Payment.png)
 
 ## Dependencies
 
