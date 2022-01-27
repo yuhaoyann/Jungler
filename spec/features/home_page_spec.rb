@@ -1,13 +1,17 @@
-# disable 'before_filter :authorize' in corresponding controller
-
 require 'rails_helper'
 
 RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
 
   # SETUP
+  
   before :each do
+    User.create!(
+      name: 'test',
+      email: 'test@gmail.com',
+      password: 'password',
+      password_confirmation: 'password'
+    )
     @category = Category.create! name: 'Apparel'
-
     10.times do |n|
       @category.products.create!(
         name:  Faker::Hipster.sentence(3),
@@ -16,17 +20,21 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
         quantity: 10,
         price: 64.99
       )
+
     end
   end
 
   scenario "They see all products" do
-    # ACT
+
     visit root_path
 
-    # commented out b/c it's for debugging only
-    # save_and_open_screenshot
+    fill_in 'email', with: 'test@gmail.com'
+    fill_in 'password', with:'password'
+    click_button('Submit')
+    expect(page).to have_content('Signed in as')
 
-    # VERIFY
     expect(page).to have_css 'article.product', count: 10
+    
+    save_and_open_screenshot
   end
 end

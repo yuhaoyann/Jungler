@@ -1,5 +1,3 @@
-# disable 'before_filter :authorize' in corresponding controller
-
 require 'rails_helper'
 
 RSpec.feature "click product will go to details page", type: :feature, js: true do
@@ -15,16 +13,28 @@ RSpec.feature "click product will go to details page", type: :feature, js: true 
         quantity: 10,
         price: 64.99
       )
+
+      User.create!(
+        name: 'test',
+        email: 'test@gmail.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
     end
 
   scenario "They see product details" do
     
     visit root_path
 
+    fill_in 'email', with: 'test@gmail.com'
+    fill_in 'password', with:'password'
+    click_button('Submit')
+    expect(page).to have_content('Signed in as')
+
     expect(page).to have_text('My Cart (0)')
     
     save_screenshot
-    
+
     find('button.btn-primary').click
 
     expect(page).to have_text('My Cart (1)')

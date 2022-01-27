@@ -15,22 +15,29 @@ RSpec.feature "click product will go to details page", type: :feature, js: true 
         quantity: 10,
         price: 64.99
       )
+
+      User.create!(
+        name: 'test',
+        email: 'test@gmail.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
     end
 
   scenario "They see product details" do
-    # ACT
+
     visit root_path
 
-    # VERIFY
+    fill_in 'email', with: 'test@gmail.com'
+    fill_in 'password', with:'password'
+    click_button('Submit')
+    expect(page).to have_content('Signed in as')
+
     find('a.btn-default').click
 
     expect(page).to have_content('Description')
     
-    # DEBUG
     save_screenshot
-    # another method to debug
-    # puts page.html
-
   end
 
 end
